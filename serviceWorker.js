@@ -1,10 +1,11 @@
 const staticDevSite = "static-dev-site-v1";
 
 const assets = [
-  "./",
+  "/",
   "index.html",
   "css/style.css",
   "js/app.js",
+  "images/icons/favicon.ico",
   "images/coffee1.jpg",
   "images/coffee2.jpg",
   "images/coffee3.jpg",
