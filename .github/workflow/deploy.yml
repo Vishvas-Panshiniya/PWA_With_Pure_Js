@@ -1,0 +1,30 @@
+name: Deploy to Github Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permission:
+  contents: write
+
+# Prevent duplicate jobs during PR + push
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "." # Upload entire project (HTML/CSS/JS)
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
